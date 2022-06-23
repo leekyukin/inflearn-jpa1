@@ -18,7 +18,7 @@ public abstract class Item {
     @Column(name = "item_id")
     private Long id;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "item", fetch = FetchType.LAZY)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private String name;

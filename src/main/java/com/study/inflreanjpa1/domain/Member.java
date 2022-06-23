@@ -7,6 +7,8 @@ import net.bytebuddy.matcher.FilterableList;
 import javax.persistence.*;
 import java.util.*;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 @Getter @Setter
 public class Member {
@@ -20,7 +22,7 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = LAZY)
     private List<Order> orders = new ArrayList<>();
 
 
