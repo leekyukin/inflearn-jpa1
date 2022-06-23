@@ -2,13 +2,14 @@ package com.study.inflreanjpa1.domain;
 
 import com.study.inflreanjpa1.domain.item.Item;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.*;
 
 @Entity
-@Getter
+@Getter @Setter
 public class OrderItem {
 
     @Id @GeneratedValue
