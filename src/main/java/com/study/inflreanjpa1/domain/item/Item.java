@@ -2,6 +2,7 @@ package com.study.inflreanjpa1.domain.item;
 
 import com.study.inflreanjpa1.domain.Category;
 import com.study.inflreanjpa1.domain.OrderItem;
+import com.study.inflreanjpa1.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +26,20 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
+
+
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if (restStock < 0) {
+            throw new NotEnoughStockException("need more stock");
+        }
+        this.stockQuantity = restStock;
+    }
+
 }

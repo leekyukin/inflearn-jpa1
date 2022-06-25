@@ -2,7 +2,6 @@ package com.study.inflreanjpa1.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.bytebuddy.matcher.FilterableList;
 
 import javax.persistence.*;
 import java.util.*;
